@@ -3,8 +3,8 @@ This document is to be strictly followed always unless otherwise explicitly
 permitted by the human.
 
 # Project Overview
-This project builds a fully Python-based executable program called "Krypto" 
-that can run on Linux or Windows. "Krypto" is an implementation of the classic 
+This project builds 2 fully Python-based executable programs called "Krypto" 
+that can run on Linux and Windows. "Krypto" is an implementation of the classic 
 mathematics card game of the same name. See SPEC.md for brief, non-exhaustive 
 discussion of the rules of Krypto.
 
@@ -19,8 +19,8 @@ or summaries.
 - Do not repeat back large chunks of code unless asked.
 - When you are asked to read and understand something, do not provide a summary 
 back unless you are explicitly told to do so.
-- When helping to troubleshoot problems, present suggestions one step at a time 
-when recommending action plans to the human. Do not return long, multi-step 
+- When helping to troubleshoot problems and recommending action plans to the 
+human, present suggestions one step at a time. Do not return long, multi-step 
 procedures to the human.
 
 # Context Management
@@ -60,8 +60,8 @@ file. Do not put multiple classes and/or functions in a single file.
 - Imports: always absolute, anchored at the `krypto` package (e.g. 
 `from krypto.build_deck import build_deck`). Never relative imports 
 (`from .build_deck import ...`) and never bare imports 
-(`from build_deck import ...`). This relies on `krypto` being 
-installed into the `.venv` as an editable install via `pyproject.toml`.
+(`from build_deck import ...`). This relies on `krypto` being installed 
+into the `.venv` as an editable install via `pyproject.toml`.
 
 ## Test
 - Only use pytest for testing.
@@ -97,7 +97,7 @@ you are editing information, present both the original text and the edited
 text to the human.
 - If you have received approval from the human, create a backup copy of the 
 file to be edited before modifying the original file. Give the backup an 
-intuitive name, e.g., if the file is named "_validation.oy", then call the 
+intuitive name, e.g., if the file is named "_validation.py", then call the 
 copy "_validation_backup.py".
 - Make the required edits to the original file, not the copy.
 - Inform the human that the changes are finished.
@@ -115,7 +115,8 @@ are deleting information, present what is being deleted. If you are adding
 information, present what you are adding. If you are editing information, 
 present both the original text and the edited text to the human. If the 
 human approves any or all of the changes, then modify CLAUDE.md with only 
-the approved changes.
+the approved changes. You do not need to follow the backup copy policy for 
+this file.
 
 ## Maintaining SPEC.md
 Change rules for SPEC.md --- Do not modify SPEC.md unless you have explicit 
@@ -126,7 +127,8 @@ When presenting your changes, if you are deleting information, present what
 is being deleted. If you are adding information, present what you are adding. 
 If you are editing information, present both the original text and the edited 
 text to the human. If the human approves any or all of the changes, then 
-modify SPEC.md only with the approved changes.
+modify SPEC.md with only the approved changes. You do not need to follow the 
+backup copy policy for this file.
 Causes to change SPEC.md --- If a design decision changes during development 
 (rejected approach, new rule discovered), **update SPEC.md to reflect it**.
 If something gets tried and discarded, add it to the "Explicitly Rejected" 
@@ -142,8 +144,8 @@ to make the changes. When presenting your changes, if you are deleting
 information, present what is being deleted. If you are adding information, 
 present what you are adding. If you are editing information, present both the 
 original text and the edited text to the human. If the human approves any or 
-all of the changes, then modify IMPLEMENTATION.md only with the approved 
-changes.
+all of the changes, then modify IMPLEMENTATION.md with only the approved 
+changes. You do not need to follow the backup copy policy for this file.
 Causes to change IMPLEMENTATION.md --- If an implementation detail changes 
 during development (rejected approach, new rule discovered), 
 **update IMPLEMENTATION.md to reflect it**. Treat IMPLEMENTATION.md as a living 
