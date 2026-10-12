@@ -11,7 +11,7 @@ evaluates exactly to the target. Score for a round equals the number of
 hand cards used in an accepted expression (0 for a round ended by Give
 Up or Exit). Round time is tracked as an up-counting stopwatch; best times 
 and lifetime statistics are derived from a saved history of past rounds.
-
+/
 ## 2. Non-Goals
 
 - No multiplayer, no networking, no accounts.

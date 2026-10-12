@@ -12,5 +12,5 @@
 
 ### Project Overview
 A Python implementation of the classic mathematics card game.
-This project builds a fully Python-based executable program called "krypto"
-that can run on Linux or Windows.
+This project builds fully Python-based executable programs called "krypto"
+that can run on Linux and Windows.
