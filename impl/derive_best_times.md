@@ -1,3 +1,7 @@
+## Product Specification
+N/A
+
+## Implementation
 `derive_best_times.py` holds a single function,
 `derive_best_times(history: list[dict]) -> list[dict]`, and it's the
 only place the Top 10 table on the Stats screen (§7.5) gets computed.
