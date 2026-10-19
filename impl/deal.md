@@ -1,3 +1,7 @@
+## Product Specification
+N/A
+
+## Implemenation
 `deal.py` holds a single function, `deal(rng: random.Random | None =
 None) -> tuple[int, list[int]]`, and it's the only place a round's
 cards get chosen. First, it imports `build_deck` from `build_deck.py`.

@@ -1,8 +1,11 @@
-### build_deck.py
+## Product Specification
+N/A
+
+## Implementation
 `build_deck.py` holds a single function, `build_deck() -> list[int]`,
 and it's the only place the 56-card composition lives in code. It
 takes no arguments and returns a fresh 56-item list, unshuffled, in
-ascending order, built from the exact counts in SPEC §3 (1–6 three
+ascending order, built from the exact counts in SPEC §4 (1–6 three
 times each, 7–10 four times each, 11–17 twice each, 18–25 once each) —
 never a random or partial deck.
 ```python
@@ -13,7 +16,7 @@ def build_deck() -> list[int]:
     -------
     list[int]
         A fresh 56-item list, unshuffled, in ascending order. Built
-        from SPEC §3's exact counts: values 1-6 appear 3 times each,
+        from SPEC §4's exact counts: values 1-6 appear 3 times each,
         7-10 appear 4 times each, 11-17 appear 2 times each, and
         18-25 appear 1 time each.
 

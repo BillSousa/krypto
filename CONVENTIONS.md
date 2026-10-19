@@ -2,38 +2,33 @@
 This document is to be strictly followed always unless otherwise explicitly  
 permitted by the human.
 
-# Project Overview
+## Project Overview
 This project builds 2 fully Python-based executable programs called "Krypto" 
-that can run on Linux and Windows. "Krypto" is an implementation of the classic 
-mathematics card game of the same name. See SPEC.md for brief, non-exhaustive 
-discussion of the rules of Krypto.
+that can run on Linux and Windows. "Krypto" is an implementation of the 
+classic mathematics card game of the same name. See SPEC_FULL.md for brief, 
+non-exhaustive discussion of the rules of Krypto.
 
-# Other Reference Material
-**Read `SPEC.md` in full before doing any work on this project.** SPEC.md 
-contains the complete, deliberated product specification. It should be 
-treated as authoritative for anything it covers.
+## Other Reference Material
+SPEC_FULL.md contains the complete, deliberated product specification. It 
+should be treated as authoritative for anything it covers.
 
 ## Teamwork Protocol
 - Keep responses concise — Be non-verbose and do not use lengthy preambles 
 or summaries.
 - Do not repeat back large chunks of code unless asked.
-- When you are asked to read and understand something, do not provide a summary 
-back unless you are explicitly told to do so.
-- When helping to troubleshoot problems and recommending action plans to the 
-human, present suggestions one step at a time. Do not return long, multi-step 
-procedures to the human.
+- When you are asked to read and understand something, do not provide a 
+summary back unless you are explicitly told to do so.
 
-# Context Management
+## Context Management
 This section provides tips for managing the context window for the AI-assisted 
 development workflow.
 The realistic context window for the AI coding harness is ~32K tokens because 
 the dev hardware is CPU only with 24GB of DRAM. This single constraint shapes 
 most of the decisions below.
-- Do not read entire files unless necessary — read only relevant sections.
 - Produce small, single-responsibility modules so any one file comfortably 
 fits in Aider's context window against the ~32K-token budget.
-- Do not save anything to system context or memory unless the human tells you 
-to or unless you ask for and explicitly get permission.
+- Do not tell Aider to save anything to system context or memory unless the 
+human tells you to or unless you ask for and explicitly get permission.
 - When implementing a module that calls another, add only the signatures and 
 docstrings of the dependency to context, not its full body. The model only 
 needs the contract to wire a correct call.
@@ -47,6 +42,7 @@ instead of hopelessly retrying the same things over and over.
 ## Python Standards
 - Language: Python only.
 - Python >=3.11
+- Follow PEP8.
 - Full type hints on all function and method signatures.
 - Docstrings on all classes, methods, and functions (numpydoc style) stating 
 purpose, params, return, and raises.
@@ -55,7 +51,7 @@ purpose, params, return, and raises.
 - Explicit, straightforward code over compact one-liners.
 - Use f-strings, not `.format()` or `%`.
 - Prefer `pathlib.Path` over `os.path`.
-- When creating classes and functions, put only one function or class in a 
+- When creating classes and functions, put only one class or function in a 
 file. Do not put multiple classes and/or functions in a single file.
 - Imports: always absolute, anchored at the `krypto` package (e.g. 
 `from krypto.build_deck import build_deck`). Never relative imports 
@@ -92,8 +88,9 @@ procedure:
 - Create a *file listing* for it
 - Present the *file listing* to the human for review
 - If the human approves the *file listing*, then create the file and write 
-the code. But if a program file already exists and you need to edit it, 
-follow this procedure:
+the code.
+But if a program file already exists and you need to edit it, follow this 
+procedure:
 - Create a *file listing* with the changes you want to make
 - Present the *file listing* to the human for review
 - If you have received approval from the human, create a backup copy of the 
@@ -118,36 +115,37 @@ to make the changes.
 with only the approved changes.
 You do not need to follow the backup copy policy for this file.
 
-## Maintaining SPEC.md
-Change rules for SPEC.md --- Do not modify SPEC.md unless you have explicit 
-approval from the human. If you would like to make changes to SPEC.md, 
-including in those cases discussed immediately below, then follow this 
-procedure: 
-- Create a *file listing* with your proposed changes
-- Present a *file listing* to the human and explicitly ask for permission 
-to make the changes.
-- If the human approves any or all of the changes, then modify SPEC.md with 
-only the approved changes.
-You do not need to follow the backup copy policy for this file.
-Causes to change SPEC.md --- If a design decision changes during development 
-(rejected approach, new rule discovered), **update SPEC.md to reflect it**.
-If something gets tried and discarded, add it to the "Explicitly Rejected" 
-SPEC.md section (§9) so it doesn't get re-proposed later. Treat SPEC.md as 
-a living document, not a one-time handoff.
-
-## Maintaining IMPLEMENTATION.md
-Change rules for IMPLEMENTATION.md --- Do not modify IMPLEMENTATION.md unless 
-you have explicit approval from the human. If you would like to make changes 
-to IMPLEMENTATION.md, including in those cases discussed immediately below, 
-then follow this procedure:
+## Maintaining SPEC_FULL.md
+Change rules for SPEC_FULL.md --- Do not modify SPEC_FULL.md unless you have 
+explicit approval from the human. If you would like to make changes to 
+SPEC_FULL.md, including in those cases discussed immediately below, then 
+follow this procedure:
 - Create a *file listing* with your proposed changes
 - Present the *file listing* to the human and explicitly ask for permission 
 to make the changes.
-- If the human approves any or all of the changes, then modify IMPLEMENTATION.md 
+- If the human approves any or all of the changes, then modify SPEC_FULL.md 
 with only the approved changes.
 You do not need to follow the backup copy policy for this file.
-Causes to change IMPLEMENTATION.md --- If an implementation detail changes 
+Causes to change SPEC_FULL.md --- If a design decision changes during 
+development (rejected approach, new rule discovered),  
+**update SPEC_FULL.md to reflect it**. If something gets tried and discarded, 
+add it to the "Explicitly Rejected" SPEC_FULL.md section (§9) so it doesn't 
+get re-proposed later. Treat SPEC_FULL.md as a living document, not a 
+one-time handoff.
+
+## Maintaining IMPLEMENTATION_FULL.md
+Change rules for IMPLEMENTATION_FULL.md --- Do not modify IMPLEMENTATION_FULL.md 
+unless you have explicit approval from the human. If you would like to make 
+changes to IMPLEMENTATION_FULL.md, including in those cases discussed 
+immediately below, then follow this procedure:
+- Create a *file listing* with your proposed changes
+- Present the *file listing* to the human and explicitly ask for permission 
+to make the changes.
+- If the human approves any or all of the changes, then modify IMPLEMENTATION_FULL.md 
+with only the approved changes.
+You do not need to follow the backup copy policy for this file.
+Causes to change IMPLEMENTATION_FULL.md --- If an implementation detail changes 
 during development (rejected approach, new rule discovered), 
-**update IMPLEMENTATION.md to reflect it**. Treat IMPLEMENTATION.md as a living 
-document, not a one-time handoff.
+**update IMPLEMENTATION_FULL.md to reflect it**. Treat IMPLEMENTATION_FULL.md 
+as a living document, not a one-time handoff.
 
