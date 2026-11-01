@@ -1,0 +1,1 @@
+2026-10-31T13:30:27.452106  target=17  hand=3,5,8,12,21  result=WIN  cards_used=4  time_sec=42.7
