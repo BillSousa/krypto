@@ -1,0 +1,37 @@
+____________________________________________________ test_handles_missing_keys_gracefully _____________________________________________________
+
+    def test_handles_missing_keys_gracefully():
+    
+        """Test that derive_best_times handles missing keys gracefully."""
+    
+        history = [
+    
+            {'is_win': True, 'cards_used': 5, 'time_sec': 10.0},
+    
+            {'is_win': True, 'cards_used': 5},  # Missing time_sec
+    
+            {'is_win': True, 'time_sec': 5.0},  # Missing cards_used
+    
+            {'is_win': True, 'cards_used': 5, 'time_sec': 15.0},
+    
+        ]
+    
+        expected = [
+    
+            {'is_win': True, 'cards_used': 5, 'time_sec': 10.0},
+    
+            {'is_win': True, 'cards_used': 5, 'time_sec': 15.0},
+    
+        ]
+    
+>       assert derive_best_times(history) == expected
+E       AssertionError: assert [{'is_win': T...rds_used': 5}] == [{'is_win': T...e_sec': 15.0}]
+E         
+E         Left contains one more item: {'is_win': True, 'cards_used': 5}
+E         Use -v to get more diff
+
+tests/test_derive_best_times2.py:172: AssertionError
+=========================================================== short test summary info ===========================================================
+FAILED tests/test_derive_best_times.py::test_handles_missing_keys_gracefully - AssertionError: assert [{'is_win': T...rds_used': 5}] == [{'is_win': T...e_sec': 15.0}]
+FAILED tests/test_derive_best_times2.py::test_handles_missing_keys_gracefully - AssertionError: assert [{'is_win': T...rds_used': 5}] == [{'is_win': T...e_sec': 15.0}]
+======================================================== 2 failed, 106 passed in 0.27s ========================================================
