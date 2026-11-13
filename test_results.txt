@@ -1,0 +1,10 @@
+>       assert stats_window.window.geometry().split("+")[0] == "600x700"
+E       AssertionError: assert '1x1' == '600x700'
+E         
+E         - 600x700
+E         + 1x1
+
+tests/test_stats_window.py:129: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_stats_window.py::test_stats_window_initialization - AssertionError: assert '1x1' == '600x700'
+========================= 1 failed, 5 passed in 0.72s ==========================
