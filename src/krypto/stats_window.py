@@ -188,55 +188,38 @@ class StatsWindow:
             sticky=(tk.W, tk.E), pady=(0, 10)
         )
 
-        # Best times header
-        best_header_frame = ttk.Frame(best_times_frame)
-        best_header_frame.grid(
-            row=0, column=0, columnspan=4, sticky=(tk.W, tk.E)
-        )
-
-        date_label = ttk.Label(
-            best_header_frame, text="Date-Time"
-        )
-        date_label.grid(row=0, column=0, padx=(0, 50))
-
-        target_label = ttk.Label(best_header_frame, text="Target")
-        target_label.grid(row=0, column=1, padx=(0, 50))
-
-        hand_label = ttk.Label(best_header_frame, text="Hand")
-        hand_label.grid(row=0, column=2, padx=(0, 50))
-
-        time_label = ttk.Label(best_header_frame, text="Time (sec)")
-        time_label.grid(row=0, column=3)
+        # Best times header (same grid as the rows so columns align)
+        headers = ("Date-Time", "Target", "Hand", "Time (sec)")
+        for column, text in enumerate(headers):
+            pad = (0, 50) if column < len(headers) - 1 else 0
+            header_label = ttk.Label(best_times_frame, text=text)
+            header_label.grid(
+                row=0, column=column, sticky=tk.W, padx=pad
+            )
 
         # Best times rows
         for i, record in enumerate(best_times):
-            row_frame = ttk.Frame(best_times_frame)
-            row_frame.grid(
-                row=i + 1, column=0, columnspan=4,
-                sticky=(tk.W, tk.E), pady=2
-            )
-
             # Format timestamp
             dt = datetime.fromtimestamp(record.get('timestamp', 0))
             date_str = dt.strftime("%Y-%m-%dT%H:%M:%S")
 
-            row_date = ttk.Label(row_frame, text=date_str)
-            row_date.grid(row=0, column=0, padx=(0, 50))
-
-            row_target = ttk.Label(
-                row_frame, text=str(record.get('target', 0))
-            )
-            row_target.grid(row=0, column=1, padx=(0, 50))
-
             hand_str = ",".join(
                 str(card) for card in record.get('hand', [])
             )
-            row_hand = ttk.Label(row_frame, text=hand_str)
-            row_hand.grid(row=0, column=2, padx=(0, 50))
-
             time_sec = record.get('time_sec', 0)
-            row_time = ttk.Label(row_frame, text=f"{time_sec:.1f}")
-            row_time.grid(row=0, column=3)
+            values = (
+                date_str,
+                str(record.get('target', 0)),
+                hand_str,
+                f"{time_sec:.1f}",
+            )
+            for column, text in enumerate(values):
+                pad = (0, 50) if column < len(values) - 1 else 0
+                row_label = ttk.Label(best_times_frame, text=text)
+                row_label.grid(
+                    row=i + 1, column=column, sticky=tk.W,
+                    padx=pad, pady=2
+                )
 
         # Close button
         close_button = ttk.Button(
