@@ -125,7 +125,7 @@ See /impl/test_deal.md
 See /impl/test_build_expr_string.md
 
 ### test_is_valid_token_chain.py
-See /impl/test_is_valid_expr_str.md
+See /impl/test_is_valid_token_chain.md
 
 ### test_evaluate.py
 See /impl/test_evaluate.md
