@@ -35,3 +35,6 @@ docs/source/generated/
 *.log
 *.bak
 .aider*
+
+# Krypto history files
+src/krypto/krypto_history.txt
