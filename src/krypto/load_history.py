@@ -1,158 +1,67 @@
-                                                                                                                                 
-from pathlib import Path                                                                                                         
-                                                                                                                                 
-import sys                                                                                                                       
-                                                                                                                                 
-from typing import List, Dict                                                                                                    
-                                                                                                                                 
-                                                                                                    
-from krypto.get_history_path import get_history_path                                                                             
-                                                                                                                                 
-                                                                                                                                 
-                                                                                                                                 
-def load_history() -> List[Dict]:                                                                                                
-                                                                                                                                 
-    """                                                                                                                          
-                                                                                                                                 
-    Loads the history file and returns a list of dictionaries, one per recorded round.                                           
-                                                                                                                                 
-                                                                                                                                 
-                                                                                                                                 
-    Each dictionary contains:                                                                                                    
-                                                                                                                                 
-    - timestamp (float): Unix timestamp of when the round was concluded                                                          
-                                                                                                                                 
-    - target (int): The target number for that round                                                                             
-                                                                                                                                 
-    - hand (list[int]): The 5 hand cards dealt for that round                                                                    
-                                                                                                                                 
-    - is_win (bool): True if the round was won, False if given up                                                                
-                                                                                                                                 
-    - cards_used (int): Number of cards used in the solution (1-5) or 0 if given up                                              
-                                                                                                                                 
-    - time_sec (float): Time taken to complete the round in seconds                                                              
-                                                                                                                                 
-                                                                                                                                 
-                                                                                                                                 
-    Returns:                                                                                                                     
-                                                                                                                                 
-        List[Dict]: List of dictionaries representing each recorded round.                                                       
-                                                                                                                                 
-                    Returns an empty list if the history file doesn't exist.                                                     
-                                                                                                                                 
-    """                                                                                                                          
-                                                                                                                                 
-    history_path = get_history_path()                                                                                            
-                                                                                                                                 
-                                                                                                                                 
-                                                                                                                                 
-    # If the history file doesn't exist, return an empty list                                                                    
-                                                                                                                                 
-    if not history_path.exists():                                                                                                
-                                                                                                                                 
-        return []                                                                                                                
-                                                                                                                                 
-                                                                                                                                 
-                                                                                                                                 
-    result = []                                                                                                                  
-                                                                                                                                 
-                                                                                                                                 
-                                                                                                                                 
-    try:                                                                                                                         
-                                                                                                                                 
-        with open(history_path, 'r') as f:                                                                                       
-                                                                                                                                 
-            for line in f:                                                                                                       
-                                                                                                                                 
-                line = line.strip()                                                                                              
-                                                                                                                                 
-                if not line:  # Skip empty lines                                                                                 
-                                                                                                                                 
-                    continue                                                                                                     
-                                                                                                                                 
-                                                                                                                                 
-                                                                                                                                 
-                try:                                                                                                             
-                                                                                                                                 
-                    # Parse each line according to the format:                                                                   
-                                                                                                                                 
-                    # timestamp,target,hand,is_win,cards_used,time_sec                                                           
-                                                                                                                                 
-                    parts = line.split(',')                                                                                      
-                                                                                                                                 
-                                                                                                                                 
-                                                                                                                                 
-                    # Convert timestamp to float                                                                                 
-                                                                                                                                 
-                    timestamp = float(parts[0])                                                                                  
-                                                                                                                                 
-                                                                                                                                 
-                                                                                                                                 
-                    # Convert target to int                                                                                      
-                                                                                                                                 
-                    target = int(parts[1])                                                                                       
-                                                                                                                                 
-                                                                                                                                 
-                                                                                                                                 
-                    # Convert hand from comma-separated string to list of ints                                                   
-                                                                                                                                 
-                    hand = [int(x) for x in parts[2].split('|')]                                                                 
-                                                                                                                                 
-                                                                                                                                 
-                                                                                                                                 
-                    # Convert is_win from 'WIN'/'GIVEUP' to bool                                                                 
-                                                                                                                                 
-                    is_win = parts[3] == 'WIN'                                                                                   
-                                                                                                                                 
-                                                                                                                                 
-                                                                                                                                 
-                    # Convert cards_used to int                                                                                  
-                                                                                                                                 
-                    cards_used = int(parts[4])                                                                                   
-                                                                                                                                 
-                                                                                                                                 
-                                                                                                                                 
-                    # Convert time_sec to float                                                                                  
-                                                                                                                                 
-                    time_sec = float(parts[5])                                                                                   
-                                                                                                                                 
-                                                                                                                                 
-                                                                                                                                 
-                    result.append({                                                                                              
-                                                                                                                                 
-                        'timestamp': timestamp,                                                                                  
-                                                                                                                                 
-                        'target': target,                                                                                        
-                                                                                                                                 
-                        'hand': hand,                                                                                            
-                                                                                                                                 
-                        'is_win': is_win,                                                                                        
-                                                                                                                                 
-                        'cards_used': cards_used,                                                                                
-                                                                                                                                 
-                        'time_sec': time_sec                                                                                     
-                                                                                                                                 
-                    })                                                                                                           
-                                                                                                                                 
-                except (ValueError, IndexError):                                                                                 
-                                                                                                                                 
-                    # Skip malformed lines rather than crashing                                                                  
-                                                                                                                                 
-                    continue                                                                                                     
-                                                                                                                                 
-                                                                                                                                 
-                                                                                                                                 
-    except OSError:                                                                                                              
-                                                                                                                                 
-        # If we can't read the file for any reason, return empty list                                                            
-                                                                                                                                 
-        return []                                                                                                                
-                                                                                                                                 
-                                                                                                                                 
-                                                                                                                                 
-    return result                                                                                                                
-
-
-
-
-
+from datetime import datetime                                                                                                  
+from pathlib import Path                                                                                                       
+from typing import Any                                                                                                         
+                                                                                                                               
+from krypto.get_history_path import get_history_path                                                                           
+                                                                                                                               
+                                                                                                                               
+def load_history() -> list[dict[str, Any]]:                                                                                    
+    """Load the history file and return one dictionary per round.                                                              
+                                                                                                                               
+    Each line has the form written by append_result():                                                                         
+    ``<ISO timestamp>  target=N  hand=a,b,c,d,e  result=WIN|GIVEUP                                                             
+    cards_used=N  time_sec=F``                                                                                                 
+                                                                                                                               
+    Parameters                                                                                                                 
+    ----------                                                                                                                 
+    None                                                                                                                       
+                                                                                                                               
+    Returns                                                                                                                    
+    -------                                                                                                                    
+    list[dict[str, Any]]                                                                                                       
+        One dictionary per valid line, with keys ``timestamp`` (float,                                                         
+        Unix time), ``target`` (int), ``hand`` (list[int]), ``is_win``                                                         
+        (bool), ``cards_used`` (int), and ``time_sec`` (float). Returns                                                        
+        an empty list if the history file does not exist or cannot be                                                          
+        read.                                                                                                                  
+                                                                                                                               
+    Raises                                                                                                                     
+    ------                                                                                                                     
+    None                                                                                                                       
+        Malformed lines are skipped rather than raised.                                                                        
+    """                                                                                                                        
+    history_path: Path = get_history_path()                                                                                    
+    if not history_path.exists():                                                                                              
+        return []                                                                                                              
+                                                                                                                               
+    result: list[dict[str, Any]] = []                                                                                          
+    try:                                                                                                                       
+        with open(history_path, "r") as file:                                                                                  
+            for line in file:                                                                                                  
+                line = line.strip()                                                                                            
+                if not line:                                                                                                   
+                    continue                                                                                                   
+                try:                                                                                                           
+                    fields = line.split()                                                                                      
+                    pairs = dict(item.split("=", 1) for item in fields[1:])                                                    
+                    result.append(                                                                                             
+                        {                                                                                                      
+                            "timestamp": datetime.fromisoformat(                                                               
+                                fields[0]                                                                                      
+                            ).timestamp(),                                                                                     
+                            "target": int(pairs["target"]),                                                                    
+                            "hand": [                                                                                          
+                                int(card)                                                                                      
+                                for card in pairs["hand"].split(",")                                                           
+                            ],                                                                                                 
+                            "is_win": pairs["result"] == "WIN",                                                                
+                            "cards_used": int(pairs["cards_used"]),                                                            
+                            "time_sec": float(pairs["time_sec"]),                                                              
+                        }                                                                                                      
+                    )                                                                                                          
+                except (KeyError, ValueError, IndexError):                                                                     
+                    continue                                                                                                   
+    except OSError:                                                                                                            
+        return []                                                                                                              
+                                                                                                                               
+    return result

@@ -1,1 +1,11 @@
 2026-10-31T13:30:27.452106  target=17  hand=3,5,8,12,21  result=WIN  cards_used=4  time_sec=42.7
+2026-11-13T17:38:09.674278  target=8  hand=5,22,6,9,9  result=WIN  cards_used=4  time_sec=242.70805124500475
+2026-11-13T17:39:55.435782  target=15  hand=20,5,1,4,1  result=WIN  cards_used=5  time_sec=65.016785291009
+
+
+
+
+2026-11-13T18:46:42.024754  target=12  hand=5,11,2,1,3  result=WIN  cards_used=5  time_sec=19.42333675500413
+2026-11-13T19:10:11.863273  target=18  hand=4,4,15,9,23  result=WIN  cards_used=5  time_sec=70.0114676279918
+2026-11-13T19:12:36.428848  target=5  hand=8,17,19,7,4  result=WIN  cards_used=5  time_sec=126.83655160800845
+2026-11-13T19:13:10.654308  target=16  hand=22,4,9,8,11  result=WIN  cards_used=5  time_sec=25.272682449998683
