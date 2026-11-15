@@ -100,7 +100,7 @@ expected to be largely self-explanatory.
 +----------------------------------------------------------+
 |  - Each round deals a target number and five hand cards  |
 |    (1 to 25) from a 56-card deck.                        |
-|  - Combine the hand cards with the aritmetic operators   |
+|  - Combine the hand cards with the arithmetic operators  |
 |    (+ - * /) and parentheses to make an expression that  |
 |    equals the target exactly.                            |
 |  - Each hand card can only be used once. You do not have |
