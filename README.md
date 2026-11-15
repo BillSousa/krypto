@@ -22,16 +22,20 @@ download the Krypto executable, put it in a folder of your choosing on
 your computer, and run the program to play.]
 To download the executable, you will need to go to the latest release 
 page on the Krypto GitHub repo. https://github.com/BillSousa/krypto/releases/latest \
-Once on the Krypto release page: 
-- Under the "Assets" heading find the Krypto executables.
-  - The Windows executable is krypto-windows.exe.
-  - The Linux executable is krypto-linux.
-<<<VERIFY ON WINDOWS>>>
-- Click the appropriate executable. A window will come up, 
-  - select "Save", 
-  - another window will come up, 
-  - navigate to your desired save location (e.g. Desktop), and 
-  - select "Save".
+Once on the Krypto release page:
+- On Windows:
+  - Under the "Assets" heading, find the krypto-windows.exe executable and click on it.
+  - A window will come up,  
+    - navigate to your desired save location (e.g. Desktop), and 
+    - select "Save".
+- On Linux:
+  - Under the "Assets" heading, find the krypto-linux executable and click on it.
+  - A window will come up, 
+    - select "Save", 
+    - another window will come up, 
+    - navigate to your desired save location (e.g. Desktop), and 
+    - select "Save".
+
 
 ### Technical Considerations 
 Windows and Linux: \
@@ -47,7 +51,8 @@ the next time you run the program.
 
 ### Setting up
 Windows:
-<<<VERIFY ON WINDOWS>>>
+The Krypto executable for Windows should be ready to run out of the box 
+without any configuration.
 Linux:
 After downloading, configure permissions so that the Krypto executable 
 can run on your device.
@@ -58,9 +63,12 @@ option does not exist under your "Properties" then disregard this step.
 In the terminal, run `chmod +x krypto-linux`.
 
 ### How to Run the Krypto Executable
+Windows:
+- Double-click the executable. (If Windows Defender or Norton block the 
+program, see the Troubleshooting section.)
+Linux:
 - Do not double-click the executable.\ <<<WHY NOT>>>
-Windows: <<<VERIFY ON WINDOWS>>>
-Linux: Right-click, click "Run as a program"
+- Right-click, click "Run as a program"
 
 ### The Gameplay Interface / How to Play a Game
 The Krypto interface is a single simple window.
@@ -142,6 +150,9 @@ corner, locate the "How To Play" button.
 ### Troubleshooting
 Windows:
 <<< NORTON BLOCKING THE PROGRAM >>>
+<<< NORTON BLOCKING WRITE TO HISTORY FILE >>>
+<<< WINDOWS DEFENDER BLOCKING THE PROGRAM >>>  "Run anyway"
+<<< WINDOWS DEFENDER BLOCKING WRITE TO HISTORY FILE >>>
 Linux:
 xxx 
 
