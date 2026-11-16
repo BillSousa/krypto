@@ -25,12 +25,14 @@ help if necessary. \
 To download the executables, go to the latest release page on the Krypto 
 GitHub repo: https://github.com/BillSousa/krypto/releases/latest \
 Once on the Krypto release page:
-- For Windows:
+
+Windows:
   - Under the "Assets" heading, find the krypto-windows.exe executable 
   and click on it. A window will come up,  
   - navigate to your desired save location (e.g. Desktop), and 
   - select "Save".
-- For Linux:
+
+Linux:
   - Under the "Assets" heading, find the krypto-linux executable and 
   click on it. A window will come up, 
   - select "Save", another window will come up, 
@@ -39,8 +41,8 @@ Once on the Krypto release page:
 
 ### Technical Considerations 
 Windows and Linux: \
-The Krypto computer program is able to keep track of the results for 
-all the hands you have played. This is done via a txt file called 
+The Krypto computer program is able to store the results for all the 
+hands you have played. This is done via a txt file called 
 "krypto_history.txt" that is stored in the same directory as the Krypto 
 executable. When you run the Krypto program for the first time a new 
 krypto_history file is generated automatically. If you delete the 
@@ -72,8 +74,8 @@ can’t run until someone deliberately allows it.
 
 ### How to Run the Krypto Executable
 Windows:
-- Double-click the executable. (If antivirus software blocks the program, 
-see the Troubleshooting section.)
+- Double-click the executable. If antivirus software blocks the program, 
+see the Troubleshooting section.
 
 Linux:
 - Do not double-click the executable. Double-clicking may show a "Failed 
