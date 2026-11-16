@@ -13,8 +13,7 @@
 ### Project Overview
 "Krypto" is a digital implementation of the classic mathematics card game. 
 This project builds Python-based executables for the Krypto game GUI that 
-can run on Linux and Windows, on your desktop or laptop device (untested 
-on tablet).
+can run on Linux and Windows, on your desktop or laptop device.
 
 ### How To Download and Install
 Windows and Linux: There is no conventional "Install" step, just a 
@@ -23,23 +22,20 @@ choosing on your computer, and run the program to play it. \
 The following download procedures may vary slightly depending on the 
 particular version of your operating system; consult other sources for 
 help if necessary. \
-To download the executable, you will need to go to the latest release 
-page on the Krypto GitHub repo: https://github.com/BillSousa/krypto/releases/latest \
+To download the executable, go to the latest release page on the Krypto 
+GitHub repo: https://github.com/BillSousa/krypto/releases/latest \
 Once on the Krypto release page:
 - For Windows:
   - Under the "Assets" heading, find the krypto-windows.exe executable 
-  and click on it.
-  - A window will come up,  
-    - navigate to your desired save location (e.g. Desktop), and 
-    - select "Save".
+  and click on it. A window will come up,  
+  - navigate to your desired save location (e.g. Desktop), and 
+  - select "Save".
 - For Linux:
   - Under the "Assets" heading, find the krypto-linux executable and 
-  click on it.
-  - A window will come up, 
-    - select "Save", 
-  - another window will come up, 
-    - navigate to your desired save location (e.g. Desktop), and 
-    - select "Save".
+  click on it. A window will come up, 
+  - select "Save", another window will come up, 
+  - navigate to your desired save location (e.g. Desktop), and 
+  - select "Save".
 
 ### Technical Considerations 
 Windows and Linux: \
@@ -56,9 +52,10 @@ you run it.
 
 ### Setting up
 Windows:
-The Krypto executable for Windows should be ready to run out of the box 
+- The Krypto executable for Windows should be ready to run out of the box 
 without any configuration.
-Linux:
+
+Linux: \
 After downloading, configure permissions so that the Krypto executable 
 can run on your device.
 - Right-click the executable and select "Properties". Look for an entry 
@@ -66,29 +63,31 @@ called "Executable as Program", or something similar. Ensure the toggle
 is turned on. If this option does not exist under your "Properties" then 
 disregard this step.
 - Open a terminal in the folder where you saved the Krypto executable. 
-In the terminal, run `chmod +x krypto-linux`. Why? Linux decides whether 
-a file can be run using a permission flag (the “executable bit”), not the 
-file’s name or type. When a browser downloads a file, it creates it with 
-default permissions (read/write, no execute) as a safety measure, so a 
-downloaded program can’t run until someone deliberately allows it. This 
-necessitates the `chmod` step.
+In the terminal, run `chmod +x krypto-linux`. This permission needs to 
+be set because Linux decides whether a file is allowed to run using a 
+permission flag (the “executable bit”), not the file’s name or type. 
+When a browser downloads a file, it creates it with default permissions 
+(read/write, no execute) as a safety measure, so a downloaded program 
+can’t run until someone deliberately allows it.
 
 ### How to Run the Krypto Executable
 Windows:
-- Double-click the executable. (If Windows Defender or Norton block the 
-program, see the Troubleshooting section.)
+- Double-click the executable. (If antivirus software blocks the program, 
+see the Troubleshooting section.)
+
 Linux:
-- Do not double-click the executable. (Double-clicking may show "Failed 
-  to find default application." Some Linux file managers don't launch 
-  executables on double-click; they look for an app to open the file with
-  instead. This is a file manager behavior, not a problem with Krypto.)
-- Right-click the file and choose "Run as a program". \
+- Do not double-click the executable. Double-clicking may show a "Failed 
+  to find default application" error. Some Linux file managers don't 
+  launch executables on double-click; they look for an app to open the 
+  file with instead. This is a file manager behavior, not a problem with 
+  Krypto.
+- Right-click the file and choose "Run as a program" \
   -- or --  
   From a terminal opened in the executable's folder: `./krypto-linux`
 
 ### The Gameplay Interface / How to Play a Game
-The Krypto interface is a simple, single window, that displays immediately 
-when the program is launched using procedures given directly above.
+The Krypto interface is a single window that displays immediately when 
+the program is launched using the procedures given directly above.
 
 In the upper right-hand corner are 2 buttons, "Stats" and "How To Play".
 - "Stats": This button is only available when a game is not running and 
@@ -115,41 +114,41 @@ game is not running, the game window is simply closed without any change
 to the krypto_history.txt file. When clicked while a game is running, 
 the game is stopped, a score of 0 is recorded to the history file, and 
 the game window is closed. The "X" button in the upper right of the game 
-window also shas the same functionality.
+window also has the same functionality.
 
 The center of the play area activates when "Start New Game" is clicked. 
-- Top-most, the target card is drawn off the top of the digital Krypto 
-deck and is displayed to the right of "Target". On the same line to the 
+The digital Krypto deck is shuffled, the target card is drawn off the 
+top, and the 5 hand cards are drawn.
+- Top-most in the game play area is the "Target". On the same line to the 
 far right, the timer begins to count upward.
 - The next line presented in the play area is the "Hand", which is the 
 5-card deal from the digital Krypto deck.
 - Directly below the "Hand" line are the "Ops" operators, which are the 
-mathematical operators and parentheses that are used in conjunction with 
-the "Hand" cards to build an expression. **Combine the hand cards with 
-the arithmetic operators (+ - * /) and parentheses to make an expression 
+mathematical operators and parentheses used in conjunction with the 
+"Hand" cards to build an expression. **Combine the hand cards with the 
+arithmetic operators (+ - * /) and parentheses to make an expression 
 that equals the target exactly.**
-- Below the "Ops" operator line is the "Expr" line, the real-time display 
-of the expression as it is being built by you. **Click (not drag, not 
-type) the number and operator symbols to construct a valid expression 
-that evaluates to the "Target".** The Krypto program has some basic 
-understanding of what constitutes a valid mathematical expression. It 
-will gray out invalid next characters and leave valid characters available 
-as you construct the expression. 
+- Below the "Ops" line is the "Expr" line, the real-time display of the 
+expression as it is being built. **Click (not drag, not type) the number 
+and operator symbols to construct a valid expression that evaluates to 
+the "Target".** The Krypto program has some basic understanding of what 
+constitutes a valid mathematical expression. It will gray out invalid 
+next characters and leave valid characters available as you construct 
+the expression. 
 - Finally, directly below the "Expr" line are 4 buttons: "Clear", "Undo", 
 "Submit", and "Give Up".
   - If you want to restart your expression from scratch, click "Clear" 
   to wipe the entire expression area in one click.
-  - If you want to erase the last character selected, click "Undo".
-  - **When you are ready to submit your expression as final, click 
-  "Submit". The Krypto program will compute the result of your expression 
-  and compare it against the target. If the output of the expression 
-  matches the target, the game is ended, the timer is stopped, a 
-  congratulatory message is displayed at the bottom of the play area 
-  showing your final time, and the result of the game is logged to the 
-  krypto_history.txt file. If the output and the target do not match, 
-  the game continues and a message is shown at the bottom of the play 
-  area informing of the error and the actual calculated output of the 
-  expression.**
+  - If you want to remove the last character selected, click "Undo".
+  - **Click "Submit" when you are ready to submit your final expression. 
+  The Krypto program will compute the result of your expression and 
+  compare it against the target. If the output of the expression matches 
+  the target, the game is ended, the timer is stopped, a congratulatory 
+  message is displayed at the bottom of the play area showing your final 
+  time, and the result of the game is logged to the krypto_history.txt 
+  file. If the output and the target do not match, the game continues 
+  and a message is shown at the bottom of the play area informing of the 
+  error and the actual calculated output of the expression.**
 
 ### House Krypto Rules 
 **Note:** The exact information presented below can be found in the 
@@ -177,26 +176,27 @@ tools often flag new, unsigned programs from unknown publishers, so these
 warnings are common and do not mean the file is harmful. You may see up 
 to three kinds of prompts:
 
-**1. Norton blocks or quarantines the .exe**
+**1. Norton blocks or quarantines the .exe** \
 When Norton shows its alert, choose the option to allow, trust, or keep 
 the file (wording varies by version). If Norton already quarantined it, 
 open Norton → Security History, find krypto-windows.exe, and choose 
 Restore & Exclude (or Allow). Then run it again.
 
-**2. Windows Defender SmartScreen says "Windows protected your PC"**
+**2. Windows Defender SmartScreen says "Windows protected your PC"** \
 Click "More info", then "Run anyway".
 
-**3. Norton blocks Krypto from writing krypto_history.txt**
+**3. Norton blocks Krypto from writing krypto_history.txt** \
 After a game, Krypto saves the result to krypto_history.txt, which Norton 
 may treat as suspicious file activity. When the prompt appears, choose 
 Allow. To stop it from asking again, add krypto-windows.exe to Norton's 
 exclusions or trusted programs list.
 
-Tip: keep krypto-windows.exe in its own folder (for example,
+**Tip:** \
+keep krypto-windows.exe in its own folder (for example,
 C:\Users\YourName\Documents\krypto) rather than Downloads, so the history
 file has a stable home.
 
-**Want to verify your download?** \
+**To verify your download:** \
 Compare its SHA-256 hash to the one listed next to the file on the Krypto 
 GitHub release page. In PowerShell: `Get-FileHash krypto-windows.exe`
 
