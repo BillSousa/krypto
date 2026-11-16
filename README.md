@@ -1,7 +1,7 @@
 ## **Krypto**
 
 [![Tests](https://raw.githubusercontent.com/BillSousa/krypto/main/.github/badges/tests-badge.svg)](https://github.com/BillSousa/krypto/actions)
-[![Tests](https://raw.githubusercontent.com/BillSousa/krypto/main/.github/badges/coverage-badge.svg)](https://github.com/BillSousa/krypto/actions) 
+[![Coverage](https://raw.githubusercontent.com/BillSousa/krypto/main/.github/badges/coverage-badge.svg)](https://github.com/BillSousa/krypto/actions) 
 
 [![Test Status 315](https://github.com/BillSousa/krypto/actions/workflows/matrix-tests-py315.yml/badge.svg)](https://github.com/BillSousa/krypto/actions/workflows/matrix-tests-py315.yml)
 [![Test Status 314](https://github.com/BillSousa/krypto/actions/workflows/matrix-tests-py314.yml/badge.svg)](https://github.com/BillSousa/krypto/actions/workflows/matrix-tests-py314.yml)
@@ -55,7 +55,7 @@ you run it.
 ### Setting up
 Windows:
 - The Krypto executable for Windows should be ready to run out of the box 
-without any configuration.
+without any configuration (though security software may prompt).
 
 Linux: \
 After downloading, configure permissions so that the Krypto executable 
@@ -128,11 +128,11 @@ far right, the timer begins to count upward.
 - Directly below the "Hand" line are the "Ops" operators, which are the 
 mathematical operators and parentheses used in conjunction with the 
 "Hand" cards to build an expression. **Click (not drag, not type) the 
-number and operator symbols (+ - * /) to construct a valid expression 
-that evaluates to the "Target" exactly.** The Krypto program has some 
-basic understanding of what constitutes a valid mathematical expression. 
-It will gray out invalid next characters and leave valid characters 
-available as you construct the expression.
+number and operator symbols (+ - * / and parentheses) to construct a 
+valid expression that evaluates to the "Target" exactly.** The Krypto 
+program has some basic understanding of what constitutes a valid 
+mathematical expression. It will gray out invalid next characters and 
+leave valid characters available as you construct the expression.
 - Below the "Ops" line is the "Expr" line, the real-time display of the 
 expression as it is being built.
 - Finally, directly below the "Expr" line are 4 buttons: "Clear", "Undo", 
