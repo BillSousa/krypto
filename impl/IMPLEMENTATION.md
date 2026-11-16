@@ -1,6 +1,6 @@
 # Krypto — Python Implementation Notes
 
-Companion to `SPEC.md`. `SPEC.md` defines what the game does 
+Companion to `../SPEC.md`. `SPEC.md` defines what the game does 
 and how it behaves; this file covers how it gets built.
 
 ## Explicitly Rejected / Considered-and-Discarded Implementations
