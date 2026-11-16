@@ -13,7 +13,7 @@
 ### Project Overview
 "Krypto" is a digital implementation of the classic mathematics card game. 
 This project builds Python-based executables for the Krypto game GUI that 
-can run on Linux and Windows, on your desktop or laptop device.
+can run on Windows and Linux, desktop and laptop.
 
 ### How To Download and Install
 Windows and Linux: There is no conventional "Install" step, just a 
@@ -22,7 +22,7 @@ choosing on your computer, and run the program to play it. \
 The following download procedures may vary slightly depending on the 
 particular version of your operating system; consult other sources for 
 help if necessary. \
-To download the executable, go to the latest release page on the Krypto 
+To download the executables, go to the latest release page on the Krypto 
 GitHub repo: https://github.com/BillSousa/krypto/releases/latest \
 Once on the Krypto release page:
 - For Windows:
@@ -125,16 +125,14 @@ far right, the timer begins to count upward.
 5-card deal from the digital Krypto deck.
 - Directly below the "Hand" line are the "Ops" operators, which are the 
 mathematical operators and parentheses used in conjunction with the 
-"Hand" cards to build an expression. **Combine the hand cards with the 
-arithmetic operators (+ - * /) and parentheses to make an expression 
-that equals the target exactly.**
+"Hand" cards to build an expression. **Click (not drag, not type) the 
+number and operator symbols (+ - * /) to construct a valid expression 
+that evaluates to the "Target" exactly.** The Krypto program has some 
+basic understanding of what constitutes a valid mathematical expression. 
+It will gray out invalid next characters and leave valid characters 
+available as you construct the expression.
 - Below the "Ops" line is the "Expr" line, the real-time display of the 
-expression as it is being built. **Click (not drag, not type) the number 
-and operator symbols to construct a valid expression that evaluates to 
-the "Target".** The Krypto program has some basic understanding of what 
-constitutes a valid mathematical expression. It will gray out invalid 
-next characters and leave valid characters available as you construct 
-the expression. 
+expression as it is being built.
 - Finally, directly below the "Expr" line are 4 buttons: "Clear", "Undo", 
 "Submit", and "Give Up".
   - If you want to restart your expression from scratch, click "Clear" 
@@ -142,13 +140,17 @@ the expression.
   - If you want to remove the last character selected, click "Undo".
   - **Click "Submit" when you are ready to submit your final expression. 
   The Krypto program will compute the result of your expression and 
-  compare it against the target. If the output of the expression matches 
-  the target, the game is ended, the timer is stopped, a congratulatory 
-  message is displayed at the bottom of the play area showing your final 
-  time, and the result of the game is logged to the krypto_history.txt 
-  file. If the output and the target do not match, the game continues 
-  and a message is shown at the bottom of the play area informing of the 
-  error and the actual calculated output of the expression.**
+  compare it against the target.**
+    - If the expression is malformed, an error message is displayed at 
+    the bottom of the gameplay area.
+    - If the output of the expression matches the target, the game is 
+    ended, the timer is stopped, a congratulatory message is displayed 
+    at the bottom of the play area showing your final time, and the 
+    result of the game is logged to the krypto_history.txt file.
+    - If the output and the target do not match, the game continues 
+    and a message is shown at the bottom of the play area informing of 
+    the error and the actual calculated output of the expression.
+  - "Give Up" exits the round and records a score of 0.
 
 ### House Krypto Rules 
 **Note:** The exact information presented below can be found in the 
@@ -162,7 +164,7 @@ upper right-hand corner, locate the "How To Play" button.)
   cards. Your score is the number of cards you used, from 1 to 5.
 - Negative and fractional values are allowed in the middle of a calculation.
   Only the final result has to equal the target.
-- Give Up and Exit end the round with a score of 0.
+- "Give Up" and "Exit" end the round with a score of 0.
 - The timer counts up from the moment you click Start New Game, and stops 
   when you solve the round or give up.
 
